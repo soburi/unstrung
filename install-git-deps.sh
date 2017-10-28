@@ -1,16 +1,17 @@
 #!/bin/sh
 
+set -x
 BUILDTOP=`pwd`/stuff
 
 mkdir -p $BUILDTOP
 cd $BUILDTOP
 #[ -d mbedtls ] || git clone -b mcr_add_otherName https://github.com/mcr/mbedtls.git
-if [ ! -f $BUILDTOP/include/cbor.h ]
+if [ ! -f $BUILDTOP/lib/libmbedtls.a ]
 then
 	(cd ${BUILDTOP}/mbedtls && cmake -DCMAKE_INSTALL_PREFIX=$BUILDTOP . && make && make install )
 fi
 
-if [ ! -f $BUILDTOP/include/cbor.h ]
+if [ ! -f $BUILDTOP/lib/libcbor.a ]
 then
 #    if [ ! -d ${BUILDTOP}/libcbor ]; then ( cd $BUILDTOP && git clone https://github.com/mcr/libcbor.git) ; fi
 
