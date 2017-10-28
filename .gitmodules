@@ -1,0 +1,6 @@
+[submodule "stuff/mbedtls"]
+	path = stuff/mbedtls
+	url = https://github.com/mcr/mbedtls.git
+[submodule "stuff/libcbor"]
+	path = stuff/libcbor
+	url = https://github.com/mcr/libcbor.git
