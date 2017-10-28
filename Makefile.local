@@ -1,3 +1,5 @@
 MBEDTLSH=-I${UNSTRUNG_SRCDIR}/stuff/include
 MBEDTLSLIB=${UNSTRUNG_SRCDIR}/stuff/lib
-CXXFLAGS+=-Drestrict=
+CBOR_LIB=${UNSTRUNG_SRCDIR}/stuff/lib/libcbor.a
+CBOR_INCLUDE=-I${UNSTRUNG_SRCDIR}/include
+CXXFLAGS+=-Drestrict=__restrict__
