@@ -1,2 +1,3 @@
 MBEDTLSH=-I${UNSTRUNG_SRCDIR}/stuff/include
 MBEDTLSLIB=${UNSTRUNG_SRCDIR}/stuff/lib
+CXXFLAGS+=-Drestrict=
