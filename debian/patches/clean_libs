@@ -1,0 +1,11 @@
+--- a/lib/Makefile.library
++++ b/lib/Makefile.library
+@@ -81,7 +81,7 @@
+ $(OBJS):	$(HDRS)
+ 
+ cleanall::
+-	rm -rf ${OBJS}
++	rm -rf ${OBJS} ${LIB}
+ 
+ # Gather dependencies caused by explicit #includes within .c files
+ depend: ${DISTSRC}
