@@ -4,9 +4,13 @@ Documentation=man:sunshine(8)
 DefaultDependencies=no
 
 [Service]
-Type=service
+Type=simple
 EnvironmentFile=-/etc/default/sunshine
-ExecStart=/usr/sbin/sunshine --syslog --instanceid ${INSTANCEID} --dagid ${DAGID} --prefix ${PREFIX} ${OPTIONS}
+ExecStart=/usr/sbin/sunshine --syslog --instanceid ${INSTANCEID} ${OPTIONS}
 RemainAfterExit=yes
 KillMode=process
 Restart=on-failure
+PIDFile=/var/run/sunshine.pid
+
+[Install]
+WantedBy=multi-user.target

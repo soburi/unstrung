@@ -39,7 +39,7 @@ case "$1" in
         if init_is_upstart; then
             exit 1
         fi
-        start $OPTIONS
+        start --syslog --instanceid ${INSTANCEID} ${OPTIONS}
         ;;
     stop)
         if init_is_upstart; then
