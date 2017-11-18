@@ -16,7 +16,7 @@
 UNSTRUNG_BUILD_OPTS=LIBMBEDTLS= MBEDTLSH=-I/usr/include/mbedtls USERLINK='-lmbedtls -lmbedcrypto -lcbor' EMBEDDED=1 MANPROGPREFIX= PROGRAMDIR=/usr/sbin
 
 %:
-	dh $@ --with=systemd
+	dh $@ --with=systemd --with=quilt
 
 override_dh_auto_build:
 	CXXFLAGS='-Drestrict=__restrict__' dh_auto_build -- $(UNSTRUNG_BUILD_OPTS)
