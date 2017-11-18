@@ -1,0 +1,8 @@
+[Unit]
+Description=Sunshine RPL Router
+
+[Service]
+Type=service
+EnvironmentFile=-/etc/default/sunshine
+ExecStart=/usr/sbin/sunshine --syslog --instanceid ${INSTANCEID} --dagid ${DAGID} --prefix ${PREFIX} ${OPTIONS}
+RemainAfterExit=yes
