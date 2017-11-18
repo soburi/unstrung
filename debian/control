@@ -2,7 +2,7 @@ Source: unstrung
 Section: net
 Priority: optional
 Maintainer: soburi <soburi@gmail.com>
-Build-Depends: debhelper (>= 10), dh-systemd (>= 1.5), quilt
+Build-Depends: debhelper (>= 10), dh-systemd (>= 1.5), quilt, libmbedtls-dev
 Standards-Version: 3.9.8
 Homepage: https://github.com/mcr/unstrung
 #Vcs-Git: https://anonscm.debian.org/collab-maint/unstrung.git
