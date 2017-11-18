@@ -1,0 +1,66 @@
+#!/bin/sh
+#
+# start/stop sunshine daemon.
+
+### BEGIN INIT INFO
+# Provides:          sunshine
+# Required-Start:    $network $remote_fs $syslog
+# Required-Stop:     $network $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start RPL router daemon
+### END INIT INFO
+
+DAEMON=/usr/sbin/sunshine
+
+test -f $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+if [ -f /etc/default/sunshine ]
+then
+    . /etc/default/sunshine
+fi
+
+start ()
+{
+    log_daemon_msg "Starting RPL router daemon" "sunshine"
+    start-stop-daemon --start --quiet --oknodo --exec $DAEMON -- "$@"
+}
+
+stop ()
+{
+    log_daemon_msg "Stopping RPL router daemon" "sunshine"
+    start-stop-daemon --stop --quiet --oknodo --exec $DAEMON
+}
+
+case "$1" in
+    start)
+        if init_is_upstart; then
+            exit 1
+        fi
+        start $OPTIONS
+        ;;
+    stop)
+        if init_is_upstart; then
+            exit 0
+        fi
+        stop
+        ;;
+    restart|force-reload)
+        if init_is_upstart; then
+            exit 1
+        fi
+        stop
+        start $OPTIONS
+        ;;
+    status)
+        status_of_proc /sbin/sunshine sunshine && exit 0 || exit $?
+        ;;
+    *)
+        log_success_msg "Usage: /etc/init.d/sunshine {start|stop|force-reload|restart|status}"
+        exit 1
+        ;;
+esac
+
+exit 0

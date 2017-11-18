@@ -10,7 +10,7 @@ Homepage: https://github.com/mcr/unstrung
 
 Package: sunshine
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libmbedtls-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, lsb-base, libmbedtls-dev
 Description: RPL router for Linux
  RPL(pronounce ripple) is Routing protocol for Internet of Things.
 

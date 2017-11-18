@@ -1,8 +1,12 @@
 [Unit]
 Description=Sunshine RPL Router
+Documentation=man:sunshine(8)
+DefaultDependencies=no
 
 [Service]
 Type=service
 EnvironmentFile=-/etc/default/sunshine
 ExecStart=/usr/sbin/sunshine --syslog --instanceid ${INSTANCEID} --dagid ${DAGID} --prefix ${PREFIX} ${OPTIONS}
 RemainAfterExit=yes
+KillMode=process
+Restart=on-failure
