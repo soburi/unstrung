@@ -1,0 +1,15 @@
+--- a/programs/Makefile
++++ b/programs/Makefile
+@@ -26,7 +26,11 @@
+ 
+ # only built utility programs on bigger systems; they are used for testing only
+ ifeq ($(EMBEDDED),)
+-SUBDIRS+=peck senddio senddao sendnd
++SUBDIRS+=senddio senddao sendnd
++endif
++
++ifneq ($(DISABLE_BUILD_PECK),)
++SUBDIRS+=peck
+ endif
+ 
+ unitcheck:
