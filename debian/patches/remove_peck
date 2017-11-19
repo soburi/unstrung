@@ -8,7 +8,7 @@
 +SUBDIRS+=senddio senddao sendnd
 +endif
 +
-+ifneq ($(DISABLE_BUILD_PECK),)
++ifeq ($(DISABLE_BUILD_PECK),)
 +SUBDIRS+=peck
  endif
  

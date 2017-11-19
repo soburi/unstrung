@@ -13,7 +13,7 @@
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
-UNSTRUNG_BUILD_OPTS=LIBMBEDTLS= MBEDTLSH=-I/usr/include/mbedtls USERLINK='-lmbedtls -lmbedcrypto -lcbor' EMBEDDED=1 MANPROGPREFIX= PROGRAMDIR=/usr/sbin
+UNSTRUNG_BUILD_OPTS=LIBMBEDTLS= MBEDTLSH=-I/usr/include/mbedtls USERLINK='-lmbedtls -lmbedcrypto -lcbor' DISABLE_BUILD_PECK=1 MANPROGPREFIX= PROGRAMDIR=/usr/sbin
 
 %:
 	dh $@ --with=systemd --with=quilt
