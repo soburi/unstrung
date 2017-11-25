@@ -111,7 +111,7 @@ public:
           for(p=filename; *p!='\0'; p++) {
             if(*p == '/') slash = p;
           }
-          return slash;
+          return slash+1;
         };
 
 };
